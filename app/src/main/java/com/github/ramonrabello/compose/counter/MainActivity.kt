@@ -86,7 +86,7 @@ fun CounterButtons(state: CounterState) {
             Button(
                     text = "Count",
                     onClick = {
-                        state.count++
+                        state.hitCount()
                     }
             )
         }
@@ -97,4 +97,8 @@ fun CounterButtons(state: CounterState) {
 class AppState(val counterState: CounterState = CounterState())
 
 @Model
-class CounterState(var count: Int = 0)
+data class CounterState(var count: Int = 0) {
+
+    fun hitCount() = count++
+
+}
